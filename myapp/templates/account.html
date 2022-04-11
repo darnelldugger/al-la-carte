@@ -3,7 +3,7 @@
    
 <div class="jumbotron">
     <div align="center">
-        <h1>Welcome to the page for {{current_user.username}}</h1>
+        <h1>Welcome to the page for {{current_user.restaurantname}}</h1>
     </div>
 </div>
 
@@ -11,6 +11,18 @@
     <form method="POST" action="" enctype="multipart/form-data">
         <div class="form-group">
             {{form.hidden_tag()}}
+        </div>
+        <div class="form-group">
+            {{form.firstname.label(class='form-group')}} 
+            {{form.firstname(class='form-control')}}
+        </div>
+        <div class="form-group">
+            {{form.lastname.label(class='form-group')}} 
+            {{form.lastname(class='form-control')}}
+        </div>
+        <div class="form-group">
+            {{form.restaurantname.label(class='form-group')}} 
+            {{form.restaurantname(class='form-control')}}
         </div>
         <div class="form-group">
             {{form.username.label(class='form-group')}} 
