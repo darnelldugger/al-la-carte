@@ -1,4 +1,5 @@
 #models 
+from enum import unique
 from myapp import db, login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 #allows to set up isAuthenticate etc 
@@ -15,12 +16,18 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String(64), unique=True, index=True)
+    lastname = db.Column(db.String(64), unique=True, index=True)
+    restaurantname = db.Column(db.String(64), unique=True, index=True)
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
     posts = db.relationship('DishPost', backref='restaurant', lazy=True)
 
-    def __init__(self, email, username, password):
+    def __init__(self, firstname, lastname, restaurantname, email, username, password):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.restaurantname = restaurantname
         self.email = email
         self.username = username
         self.password_hash = generate_password_hash(password)
