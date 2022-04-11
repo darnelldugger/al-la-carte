@@ -18,3 +18,8 @@ def create_post():
         print('Dish post was created')
         return redirect(url_for('core.index'))
     return render_template('create_post.html', form=form)
+
+@dish_posts.route('/<int:dish_post_id>')
+def dish_post(dish_post_id):
+    dish_post = DishPost.query.get_or_404(dish_post_id) 
+    return render_template('dish_post.html', title=dish_post.title, date=dish_post.date, post=dish_post)
