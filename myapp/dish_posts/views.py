@@ -48,3 +48,16 @@ def update(dish_post_id):
         dish_post.description = form.description.data
 
     return render_template('create_post.html',title='Updating',form=form)
+
+@dish_posts.route('/<int:dish_post_id>/delete',methods=['GET','POST'])
+@login_required
+def delete_post(dish_post_id):
+
+    dish_post = DishPost.query.get_or_404(dish_post_id)
+    if dish_post.author != current_user:
+        abort(403)
+
+    db.session.delete(dish_post)
+    db.session.commit()
+    flash('Dish Post Deleted')
+    return redirect(url_for('core.index'))
