@@ -80,5 +80,5 @@ def account():
 def user_posts(restaurnatname):
     page = request.args.get('page', 1, type=int)
     user = user.query.filter_by(restaurnatname=restaurnatname).first_or_404()
-    dish_posts = DishPost.query.filter_by(restaurant=user).order_by(DishPost.date.desc())
+    dish_posts = DishPost.query.filter_by(restaurant=user).order_by(DishPost.date.desc()).paginate(page=page, per_page=5) 
     return render_template('user_dish_posts.html', dish_posts=dish_posts, user=user)
