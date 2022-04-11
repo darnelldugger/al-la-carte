@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>{{ post.title }}</h1>
+  <h2>Served At: {{post.restaurant.restaurantname}}</h2>
+  <h3>Posted On: {{ post.date.strftime('%B %d, %Y') }}</h3>
+  <h4>{{post.price</h4>
+  <p>{{post.description}}</p>
+  {% if post.restaurant == current_user %}
+  <div>
+    <a class="btn btn-secondary" href="{{ url_for('dish_posts.update', dish_post_id=post.id) }}">Update</a>
+    <br>
+    <form action="{{ url_for('dish_posts.delete_post', dish_post_id=post.id) }}" method="POST">
+      <input class="btn btn-danger" type="submit" value="Delete">
+    </form>
+  </div>
+  {% endif %}
+</div>
+{% endblock content %}
