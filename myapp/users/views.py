@@ -14,7 +14,7 @@ users = Blueprint('users', __name__) # dont forget to register this in __init__.
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(email=form.email.data, username=form.username.data, password=form.password.data)
+        user = User(firstname=form.firstname.data, lastname=form.lastname.data, restaurantname=form.restaurantname.data, email=form.email.data, username=form.username.data, password=form.password.data)
 
         db.session.add(user)
         db.session.commit()
@@ -59,12 +59,18 @@ def logout():
 def account():
     form = UpdateUserForm()
     if form.validate_on_submit(): 
+        current_user.firstname = form.firstname.data
+        current_user.lastname = form.lastname.data
+        current_user.restaurantname = form.restaurantname.data
         current_user.username = form.username.data
         current_user.email = form.email.data
         db.session.commit()
         flash('User account updated!!')
         return redirect(url_for('users.account'))
     elif request.method == 'GET':
+        form.firstname.data = current_user.firstname
+        form.lastname.data = current_user.lastname
+        form.restaurantname.data = current_user.restuarantname
         form.username.data = current_user.username
         form.email.data = current_user.email
 
