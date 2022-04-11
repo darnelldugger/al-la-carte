@@ -3,7 +3,7 @@ from operator import methodcaller
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from myapp import db
-from myapp.models import User
+from myapp.models import User, DishPost
 from myapp.users.forms import RegistrationForm, LoginForm, UpdateUserForm
 
 users = Blueprint('users', __name__) # dont forget to register this in __init__.py 
@@ -70,8 +70,15 @@ def account():
     elif request.method == 'GET':
         form.firstname.data = current_user.firstname
         form.lastname.data = current_user.lastname
-        form.restaurantname.data = current_user.restuarantname
+        form.restaurantname.data = current_user.restaurantname
         form.username.data = current_user.username
         form.email.data = current_user.email
 
     return render_template('account.html', form=form)
+
+@users.route('/<restaurantname>')
+def user_posts(restaurnatname):
+    page = request.args.get('page', 1, type=int)
+    user = user.query.filter_by(restaurnatname=restaurnatname).first_or_404()
+    dish_posts = DishPost.query.filter_by(restaurant=user).order_by(DishPost.date.desc())
+    return render_template('user_dish_posts.html', dish_posts=dish_posts, user=user)
