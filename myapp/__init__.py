@@ -52,3 +52,7 @@ app.register_blueprint(error_pages)
 #linking users views Blueprint
 from myapp.users.views import users
 app.register_blueprint(users)
+
+# Linking and registering dish_posts views Blueprint
+from myapp.dish_posts.views import dish_posts
+app.register_blueprint(dish_posts)
