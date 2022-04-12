@@ -11,7 +11,7 @@ dish_posts = Blueprint('dish_posts', __name__)
 def create_dish():
     form = DishPostForm()
     if form.validate_on_submit():
-        dish_post = DishPost(title=form.title.data, price=form.price.data, description=form.description.data, user_id=current_user.id)
+        dish_post = DishPost(title=form.title.data, price=form.price.data, description=form.description.data, photo=form.photo.file, user_id=current_user.id)
         db.session.add(dish_post)
         db.session.commit()
         flash('Dish Post Created')
@@ -54,7 +54,7 @@ def update(dish_post_id):
 def delete_post(dish_post_id):
 
     dish_post = DishPost.query.get_or_404(dish_post_id)
-    if dish_post.author != current_user:
+    if dish_post.restaurant != current_user:
         abort(403)
 
     db.session.delete(dish_post)
