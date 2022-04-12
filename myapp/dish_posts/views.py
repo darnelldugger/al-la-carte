@@ -44,10 +44,10 @@ def update(dish_post_id):
 
     elif request.method == 'GET':
         form.title.data = dish_post.title
-        dish_post.price = form.price.data
-        dish_post.description = form.description.data
+        form.price.data = dish_post.price
+        form.description.data = dish_post.description
 
-    return render_template('create_post.html',title='Updating',form=form)
+    return render_template('create_dish.html',title='Updating',form=form)
 
 @dish_posts.route('/<int:dish_post_id>/delete',methods=['GET','POST'])
 @login_required
