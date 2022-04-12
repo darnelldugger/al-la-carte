@@ -7,8 +7,7 @@ core = Blueprint('core', __name__)
 
 @core.route('/')
 def index():
-    page = request.args.get('page', 1, type=int)
-    dish_posts = DishPost.query.order_by(DishPost.date.desc()).paginate(page=page, per_page=5)
+    dish_posts = DishPost.query.order_by(DishPost.date.desc())
     return render_template('index.html', dish_posts=dish_posts)
 
 @core.route('/info')
