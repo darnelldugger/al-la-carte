@@ -2,9 +2,9 @@
 {% block content %}
 <div class="jumbotron">
   <h1>{{ post.title }}</h1>
-  <h2>Served At: {{post.restaurant.restaurantname}}</h2>
-  <h3>Posted On: {{ post.date.strftime('%B %d, %Y') }}</h3>
-  <h4>{{post.price</h4>
+  <h5>Served At: {{post.restaurant.restaurantname}}</h5>
+  <!-- <h5>Posted On: {{ post.date.strftime('%B %d, %Y') }}</h5> -->
+  <h4>${{post.price}}</h4>
   <p>{{post.description}}</p>
   {% if post.restaurant == current_user %}
   <div>

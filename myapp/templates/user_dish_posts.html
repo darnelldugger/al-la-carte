@@ -10,13 +10,13 @@
     <h2>
         <a href="{{url_for('dish_posts.dish_post', dish_post_id=post.id)}}">{{post.title}}</a>
     </h2>
-    Served At: <a href="{{url_for('users.user_posts', username=post.restaurant.username)}}">{{post.restaurant.restaurantname}}</a>
+    Served At: <a href="{{url_for('users.user_posts', restaurantname=post.restaurant.restaurantname)}}">{{post.restaurant.restaurantname}}</a>
 
     <p class="text-muted">
         Posted On: {{post.date.strftime("%y-%m-%d")}}
     </p>
     <br>
-    <h4>{{post.price</h4>
+    <h4>${{post.price}}</h4>
     <p>{{post.description}}</p>
     <br>
     {% endfor %}

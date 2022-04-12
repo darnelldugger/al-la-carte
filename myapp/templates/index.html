@@ -9,7 +9,7 @@
                 <div class="car-boy">
                     <h2>
                         <a class="card-title" href="{{url_for('dish_posts.dish_post', dish_post_id=post.id)}}">{{post.title}}</a>
-                        <a href="{{url_for('users.user_posts', restaurantname=post.restaurant.username)}}">Served At: {{post.restaurant.restaurantname}}</a>
+                        <a href="{{url_for('users.user_posts', restaurantname=post.restaurant.restaurantname)}}">Served At: {{post.restaurant.restaurantname}}</a>
                     </h2>
                     <p>Posted on: {{post.date.strftime('%Y - %m - %d')}}</p>
                     <a class="btn btn-primary" href="{{url_for('dish_posts.dish_post', dish_post_id=post.id)}}">View Dish Details</a>

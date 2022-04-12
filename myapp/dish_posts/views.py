@@ -8,7 +8,7 @@ dish_posts = Blueprint('dish_posts', __name__)
 
 @dish_posts.route('/create', methods=['GET', 'POST'])
 @login_required
-def create_post():
+def create_dish():
     form = DishPostForm()
     if form.validate_on_submit():
         dish_post = DishPost(title=form.title.data, price=form.price.data, description=form.description.data, user_id=current_user.id)
@@ -17,7 +17,7 @@ def create_post():
         flash('Dish Post Created')
         print('Dish post was created')
         return redirect(url_for('core.index'))
-    return render_template('create_post.html', form=form)
+    return render_template('create_dish.html', form=form)
 
 @dish_posts.route('/<int:dish_post_id>')
 def dish_post(dish_post_id):
@@ -29,7 +29,7 @@ def dish_post(dish_post_id):
 def update(dish_post_id):
     dish_post = DishPost.query.get_or_404(dish_post_id)
 
-    if dish_post.author != current_user:
+    if dish_post.restaurant != current_user:
         abort(403)
 
     form = DishPostForm()

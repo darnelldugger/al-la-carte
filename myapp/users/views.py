@@ -77,8 +77,9 @@ def account():
     return render_template('account.html', form=form)
 
 @users.route('/<restaurantname>')
-def user_posts(restaurnatname):
+def user_posts(restaurantname):
     page = request.args.get('page', 1, type=int)
-    user = user.query.filter_by(restaurnatname=restaurnatname).first_or_404()
+    user = User.query.filter_by(restaurantname=restaurantname).first_or_404()
     dish_posts = DishPost.query.filter_by(restaurant=user).order_by(DishPost.date.desc()).paginate(page=page, per_page=5) 
     return render_template('user_dish_posts.html', dish_posts=dish_posts, user=user)
+    
