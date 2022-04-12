@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="jumbotron">
+    <!-- <div class="jumbotron">
         <h1>Dishes</h1>
-    </div>
+    </div> -->
     <div class="container">
         {% for post in dish_posts.items %}
             <div class="card">
                 <div class="car-boy">
-                    <h2>
+                    <h5>
                         <a class="card-title" href="{{url_for('dish_posts.dish_post', dish_post_id=post.id)}}">{{post.title}}</a>
+                    </h5>
                         <a href="{{url_for('users.user_posts', restaurantname=post.restaurant.restaurantname)}}">Served At: {{post.restaurant.restaurantname}}</a>
-                    </h2>
                     <p>Posted on: {{post.date.strftime('%Y - %m - %d')}}</p>
                     <a class="btn btn-primary" href="{{url_for('dish_posts.dish_post', dish_post_id=post.id)}}">View Dish Details</a>
                 </div>
@@ -18,7 +18,7 @@
         {% endfor %}
     </div>
 
-    <nav aria-label="Page Navigation example">
+    <!-- <nav aria-label="Page Navigation example">
         <ul class="pagination justify-content-center">
             {% for page_num in dish_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
                 {% if dish_posts.page == page_num %}
@@ -32,5 +32,5 @@
                 {% endif %}
             {% endfor %}
         </ul>
-    </nav>
+    </nav> -->
 {% endblock %}

@@ -46,15 +46,13 @@ class DishPost(db.Model):
     title = db.Column(db.String(140), nullable=False)
     price = db.Column(db.Integer, nullable=False)
     description = db.Column(db.Text, nullable=False)
-    photo = db.Column(db.ImageColumn(size=(300, 300, True)), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
 
-    def __init__(self, title, price, description, photo, user_id):
+    def __init__(self, title, price, description, user_id):
         self.title = title
         self.price = price
         self.description = description
-        self.photo = photo
         self.user_id = user_id
 
 

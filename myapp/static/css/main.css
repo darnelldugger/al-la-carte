@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+  height: 250px;
+  width: 100vw;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-rows: 125px 125px; */
+  grid-row-gap: 10px; 
+  grid-column-gap: 10px;
+}
+
+.container card {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.car-boy {
+  padding: 1rem;
+}
