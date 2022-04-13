@@ -1,24 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
+<h1>{{user.restaurantname}}'s Menu</h1>
 <div class="container">
-    <div class="jumbotron">
-        <div align="center">
-            <h1>{{user.restaurantname}} 's Menu</h1>
-        </div>
+    <div class="card">
+        <!-- <div class="car-boy1"> -->
+            {% for post in dish_posts.items %}
+            <h2>
+                <a href="{{url_for('dish_posts.dish_post', dish_post_id=post.id)}}">{{post.title}}</a>
+            </h2>
+            <!-- Served At: <a
+        href="{{url_for('users.user_posts', restaurantname=post.restaurant.restaurantname)}}">{{post.restaurant.restaurantname}}</a> -->
+            <p class="text-muted">
+                Posted On: {{post.date.strftime("%y-%m-%d")}}
+            </p>
+            <br>
+            <h4>${{post.price}}</h4>
+            <p>{{post.description}}</p>
+            <br>
+            {% endfor %}
+        <!-- </div> -->
     </div>
-    {% for post in dish_posts.items %}
-    <h2>
-        <a href="{{url_for('dish_posts.dish_post', dish_post_id=post.id)}}">{{post.title}}</a>
-    </h2>
-    Served At: <a
-        href="{{url_for('users.user_posts', restaurantname=post.restaurant.restaurantname)}}">{{post.restaurant.restaurantname}}</a>
-    <p class="text-muted">
-        Posted On: {{post.date.strftime("%y-%m-%d")}}
-    </p>
-    <br>
-    <h4>${{post.price}}</h4>
-    <p>{{post.description}}</p>
-    <br>
-    {% endfor %}
 </div>
 {% endblock %}
