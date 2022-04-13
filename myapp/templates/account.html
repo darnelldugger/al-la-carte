@@ -1,16 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="jumbotron">
-    <div align="center">
-        <h1>Welcome to the page for {{current_user.restaurantname}}</h1>
-    </div>
-</div>
 
-<div class="container">
+<div class="containerPost">
     <form method="POST" action="" enctype="multipart/form-data">
         <div class="form-group">
             {{form.hidden_tag()}}
+            <h1>Edit {{current_user.restaurantname}} Account Here</h1>
         </div>
         <div class="form-group">
             {{form.firstname.label(class='form-group')}}
@@ -32,11 +28,11 @@
             {{form.email.label(class='form-group')}}
             {{form.email(class='form-control')}}
         </div>
-
         <div class="form-group">
-            {{form.submit(class='btn btn-primary')}}
+            {{form.submit(class='btn btn-success')}}
         </div>
     </form>
 </div>
 {% endblock %}
+
 

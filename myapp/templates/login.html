@@ -1,23 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="main">
-    <section class="loginForm">
-        <h1>Login</h1>
-        <form method="POST">
-            <fieldset class="form-field">
-                {{form.hidden_tag()}}
-                {{form.email.label}}
-                {{form.email}}
-            </fieldset>
-            <fieldset class="form-field">
-                {{form.password.label}}
-                {{form.password}}
-            </fieldset>
-            {{form.submit()}}
-        </form>
-    </section>
+<div class="containerPost">
+    <form method="POST">
+        <div class="form-group">
+            {{form.hidden_tag()}}
+            <h1>Login</h1>
+        </div>
+        <div class="form-group">
+            {{form.email.label(class='form-group')}}
+            {{form.email(class='form-control')}}
+        </div>
+        <div class="form-group">
+            {{form.password.label(class='form-group')}}
+            {{form.password(class='form-control')}}
+        </div>
+        <div class="form-group">
+            {{form.submit(class='btn btn-success')}}
+        </div>
+    </form>
 </div>
 {% endblock %}
-
-
-

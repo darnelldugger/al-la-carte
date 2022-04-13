@@ -1,15 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
-   
-<form method="POST">
-    {{form.hidden_tag()}}
-    {{form.firstname.label}}{{form.firstname}}<br>
-    {{form.lastname.label}}{{form.lastname}}<br>
-    {{form.restaurantname.label}}{{form.restaurantname}}<br>
-    {{form.email.label}}{{form.email}}<br>
-    {{form.username.label}}{{form.username}}<br>
-    {{form.password.label}}{{form.password}}<br>
-    {{form.pass_confirm.label}}{{form.pass_confirm}}<br>
-    {{form.submit()}}
-</form>
+<div class="containerPost">
+    <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            {{form.hidden_tag()}}
+            <h1>Sign up to create your menu today!</h1>
+        </div>
+        <div class="form-group">
+            {{form.firstname.label(class='form-group')}}
+            {{form.firstname(class="form-control")}}
+        </div>
+        <div class="form-group">
+            {{form.lastname.label(class='form-group')}}
+            {{form.lastname(class='form-control')}}
+        </div>
+        <div class="form-group">
+            {{form.restaurantname.label(class='form-group')}}
+            {{form.restaurantname(class='form-control')}}
+        </div>
+        <div class="form-group">
+            {{form.email.label(class='form-group')}}<br>
+            {{form.email(class='form-control')}}
+        </div>
+        <div class="form-group">
+            {{form.username.label(class='form-group')}}
+            {{form.username(class='form-control')}}
+        </div>
+        <div class="form-group">
+            {{form.password.label(class='form-group')}}
+            {{form.password(class='form-control')}}
+        </div>
+        <div class="form-group">
+            {{form.pass_confirm.label(class='form-group')}}
+            {{form.pass_confirm(class='form-control')}}
+        </div>
+        <div class="form-group">
+            {{form.submit(class='btn btn-success')}}
+        </div>
+    </form>
+</div>
 {% endblock %}
