@@ -111,9 +111,11 @@ label {
 }
 
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: tomato;
   color: white;
-  text-align: center;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -126,7 +128,9 @@ footer h1 {
   margin: 1rem 0 1rem 0;
 }
 
-
+footer i {
+  padding: 1rem;
+}
 
 #ctnbtn {
   background-color: white;
