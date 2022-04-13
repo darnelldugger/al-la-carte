@@ -19,9 +19,9 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Log In')
 
 class RegistrationForm(FlaskForm):
-    firstname = StringField('Firstname', validators=[DataRequired()])
-    lastname = StringField('Lastname', validators=[DataRequired()])
-    restaurantname = StringField('Restaurantname', validators=[DataRequired()])
+    firstname = StringField('First Name', validators=[DataRequired()])
+    lastname = StringField('Last Name', validators=[DataRequired()])
+    restaurantname = StringField('Restaurant Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired(), EqualTo('pass_confirm', message='Passwords must match!')])
@@ -41,9 +41,9 @@ class RegistrationForm(FlaskForm):
     
 
 class UpdateUserForm(FlaskForm):
-    firstname = StringField('Firstname', validators=[DataRequired()])
-    lastname = StringField('Lastname', validators=[DataRequired()])
-    restaurantname = StringField('Restaurantname', validators=[DataRequired()])
+    firstname = StringField('First Name', validators=[DataRequired()])
+    lastname = StringField('Last Name', validators=[DataRequired()])
+    restaurantname = StringField('Restaurant Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()]) 
     username = StringField('Username', validators=[DataRequired()])
     submit = SubmitField('Update')
