@@ -161,6 +161,10 @@ footer i {
   padding: 1rem;
 }
 
+#formBtn {
+  margin-top: 1rem;
+}
+
 @media only screen and (min-width: 768px) {
   .container {
     display: grid;

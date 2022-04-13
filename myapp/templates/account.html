@@ -28,8 +28,10 @@
             {{form.email.label(class='form-group')}}
             {{form.email(class='form-control form-control-lg')}}
         </div>
-        <div class="form-group">
+        <div class="form-group" id="formBtn">
             <button type="submit" class='btn btn-success form-control-lg'>Save</button>
+            <a href="{{url_for('core.index')}}" class="btn btn-danger form-control-lg">Cancel
+                <a>
         </div>
     </form>
 </div>
