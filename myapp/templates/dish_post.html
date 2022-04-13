@@ -1,24 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="containerPost">
-  <div class="flex">
-  <a href="{{ url_for('dish_posts.update', dish_post_id=post.id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
-    <br>
-    <form action="{{ url_for('dish_posts.delete_post', dish_post_id=post.id) }}" method="POST">
-      <button type="submit" value="Delete"
-      >
-      <i class="fa-solid fa-trash-can">
-    
-      </i>
-    </button>
-    </form>
-  </div>
+  <div class="cardTop">
+    <div>
+        <span class="color: Moneygreen;">
+        <i id="money" class="fa-solid fa-dollar-sign fa-2x">{{post.price}}</i>
+    </span>
+    </div>
+    <div id="cardMenuButton">
+        <a href="{{ url_for('dish_posts.update', dish_post_id=post.id) }}"><i class="fa-solid fa-pen-to-square fa-lg"></i>
+        </a>
+        <form action="{{ url_for('dish_posts.delete_post', dish_post_id=post.id) }}" method="POST">
+          <button id="dtls-btn" type="submit" value="Delete">
+            <i class="fa-solid fa-trash-can">
+            </i>
+          </button>
+        </form>
+    </div>
+</div>
   <h1>{{ post.title }}</h1>
-  <h5>Served At: {{post.restaurant.restaurantname}}</h5>
-  <!-- <h5>Posted On: {{ post.date.strftime('%B %d, %Y') }}</h5> -->
-  <h4>${{post.price}}</h4>
   <p>{{post.description}}</p>
+  <div id="viewMenu">
+  <h4>Served At: {{post.restaurant.restaurantname}}</h4>
+</div>
   {% if post.restaurant == current_user %}
-    {% endif %}
-  </div>
-  {% endblock content %}
+  {% endif %}
+</div>
+{% endblock content %}

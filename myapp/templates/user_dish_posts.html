@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container">
-        <div class="jumbotron">
-            <div align="center">
-                <h1>{{user.restaurantname}} 's Menu</h1>
-            </div>
+<div class="container">
+    <div class="jumbotron">
+        <div align="center">
+            <h1>{{user.restaurantname}} 's Menu</h1>
         </div>
-     {% for post in dish_posts.items %}
+    </div>
+    {% for post in dish_posts.items %}
     <h2>
         <a href="{{url_for('dish_posts.dish_post', dish_post_id=post.id)}}">{{post.title}}</a>
     </h2>
-    Served At: <a href="{{url_for('users.user_posts', restaurantname=post.restaurant.restaurantname)}}">{{post.restaurant.restaurantname}}</a>
-
+    Served At: <a
+        href="{{url_for('users.user_posts', restaurantname=post.restaurant.restaurantname)}}">{{post.restaurant.restaurantname}}</a>
     <p class="text-muted">
         Posted On: {{post.date.strftime("%y-%m-%d")}}
     </p>
@@ -20,8 +20,5 @@
     <p>{{post.description}}</p>
     <br>
     {% endfor %}
-    </div>
-
-
-
+</div>
 {% endblock %}
