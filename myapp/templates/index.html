@@ -10,8 +10,8 @@
             <div class="cardTop">
                 <div>
                     <span class="color: Moneygreen;">
-                    <i id="money" class="fa-solid fa-dollar-sign fa-lg">{{post.price}}</i>
-                </span>
+                        <i id="money" class="fa-solid fa-dollar-sign fa-lg">{{post.price}}</i>
+                    </span>
                 </div>
                 <div id="cardMenuButton">
                     <a href="{{url_for('dish_posts.dish_post', dish_post_id=post.id)}}">
@@ -23,11 +23,11 @@
                 {{post.title}}
             </h5>
             <div class="restaurant">
-                <p>
                     Restaurant:
                     <a href="{{url_for('users.user_posts', restaurantname=post.restaurant.restaurantname)}}">
-                        {{post.restaurant.restaurantname}}</a>
-                </p>
+                        {{post.restaurant.restaurantname}}
+                    </a>
+                
             </div>
         </div>
     </div>

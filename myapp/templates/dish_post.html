@@ -3,27 +3,32 @@
 <div class="containerPost">
   <div class="cardTop">
     <div>
-        <span class="color: Moneygreen;">
+      <span class="color: Moneygreen;">
         <i id="money" class="fa-solid fa-dollar-sign fa-2x">{{post.price}}</i>
-    </span>
+      </span>
     </div>
     <div id="cardMenuButton">
-        <a href="{{ url_for('dish_posts.update', dish_post_id=post.id) }}"><i class="fa-solid fa-pen-to-square fa-lg"></i>
-        </a>
-        <form action="{{ url_for('dish_posts.delete_post', dish_post_id=post.id) }}" method="POST">
-          <button id="dtls-btn" type="submit" value="Delete">
-            <i class="fa-solid fa-trash-can">
-            </i>
-          </button>
-        </form>
+      <a href="{{ url_for('dish_posts.update', dish_post_id=post.id) }}"><i class="fa-solid fa-pen-to-square fa-lg"></i>
+      </a>
+      <form action="{{ url_for('dish_posts.delete_post', dish_post_id=post.id) }}" method="POST">
+        <button id="dtls-btn" type="submit" value="Delete">
+          <i class="fa-solid fa-trash-can">
+          </i>
+        </button>
+      </form>
     </div>
-</div>
+  </div>
   <h1>{{ post.title }}</h1>
   <p>{{post.description}}</p>
   <div id="viewMenu">
-  <h4>Served At: {{post.restaurant.restaurantname}}</h4>
-</div>
+    <h6>
+      <a href="{{url_for('users.user_posts', restaurantname=post.restaurant.restaurantname)}}">
+      View more of:
+      </a>
+    </h6>
+    <p> {{post.restaurant.restaurantname}}</p>
+  </div>
   {% if post.restaurant == current_user %}
   {% endif %}
-</div>
-{% endblock content %}
+  </div>
+  {% endblock content %}
