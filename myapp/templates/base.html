@@ -23,15 +23,14 @@
                 <p style="font-size: 12px;">Home</p>
                 <a>
         </li>
+        {% if current_user.is_authenticated %}
         <li class="nav-link">
             <a href="{{url_for('core.info')}}"><i class="fa-solid fa-tags fa-xl"></i>
                 <p style="font-size: 12px;">Offers</p>
             </a>
         </li>
-        {% if current_user.is_authenticated %}
-        <li class="nav-link">
+        <li class="nav-link" id="createBtnNav">
             <a href="{{url_for('dish_posts.create_dish')}}"><i class="fa-solid fa-square-plus fa-3x"></i>
-                <!-- <p style="font-size: 12px;">Create</p> -->
             </a>
         </li>
         <li class="nav-link">
@@ -55,6 +54,16 @@
                 <p style="font-size: 12px;">Sign Up</p>
             </a>
         </li>
+        <footer>
+            <div id="footerLogo">
+                <i class="fa-solid fa-box-open"></i>
+                <h1>Box Menu</h1>
+            </div>
+            <div id="footerTm">
+                <i class="fa-solid fa-copyright"></i>
+                <p>Box Menu Software Company</p>
+            </div>
+        </footer>
         {% endif %}
     </ul>
     <div class="container">
@@ -62,15 +71,5 @@
         {% endblock %}
     </div>
 </body>
-<footer>
-    <div id="footerLogo">
-        <i class="fa-solid fa-box-open"></i>
-        <h1>Box Menu</h1>
-    </div>
-    <div id="footerTm">
-        <i class="fa-solid fa-copyright"></i>
-        <p>Box Menu Software Company</p>
-    </div>
-</footer>
 
 </html>
