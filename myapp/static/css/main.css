@@ -186,7 +186,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: tomato;
+  background-color: white;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -196,7 +196,7 @@ footer {
 
 #footerLogo {
   display: flex;
-  color: white;
+  color: tomato;
   margin-top: .5rem;
 }
 
@@ -316,6 +316,14 @@ footer {
 
   .containerPost {
     width: 50vh;
+  }
+
+  footer {
+    background-color: tomato;
+  }
+  
+  #footerLogo {
+    color: white;
   }
 
 }
