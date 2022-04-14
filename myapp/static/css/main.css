@@ -323,7 +323,9 @@ footer {
   }
   
   #footerLogo {
+    display: flex;
     color: white;
+    margin-top: .5rem;
   }
 
 }
