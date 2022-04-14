@@ -1,3 +1,7 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 ul {
   display: flex;
   justify-content: center;
@@ -135,8 +139,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: tomato;
-  color: white;
+  background-color: white;
+  color: tomato;
   position: fixed;
   left: 0;
   bottom: 0;
