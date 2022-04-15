@@ -121,7 +121,6 @@ li p {
 .menuImg h1 {
   text-transform: uppercase;
   font-weight: 700;
-  color: grey;
 }
 
 #menupic {
@@ -130,7 +129,7 @@ li p {
   border-radius: 5rem;
   border-style: solid;
   margin-bottom: 1rem;
-  border-color: grey;
+  border-color: tomato;
 }
 
 a {
