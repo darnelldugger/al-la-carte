@@ -2,6 +2,7 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+
 ul {
   display: flex;
   justify-content: center;
@@ -34,7 +35,7 @@ li p {
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 250px;
+  /* height: 250px; */
   width: 100vw;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 10px;
@@ -108,6 +109,30 @@ li p {
   border-width: 1px;
 }
 
+.menuImg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.menuImg h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: grey;
+}
+
+#menupic {
+  height: 150px;
+  width: 150px;
+  border-radius: 5rem;
+  border-style: solid;
+  margin-bottom: 1rem;
+  border-color: grey;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -177,8 +202,12 @@ img {
 }
 
 .restaurant a:hover {
-  box-shadow: inset 180px 0 0 0 tomato;
+  box-shadow: inset 180px 0 0 0 rgb(99, 255, 71);
   color: white;
+}
+
+span:hover {
+  color:rgb(99, 255, 71);
 }
 
 footer {
@@ -186,7 +215,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: tomato;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -196,7 +225,7 @@ footer {
 
 #footerLogo {
   display: flex;
-  color: tomato;
+  color: white;
   margin-top: .5rem;
 }
 
@@ -318,14 +347,5 @@ footer {
     width: 50vh;
   }
 
-  footer {
-    background-color: tomato;
-  }
-  
-  #footerLogo {
-    display: flex;
-    color: white;
-    margin-top: .5rem;
-  }
 
 }

@@ -9,13 +9,11 @@
         <div class="car-boy1">
             <div class="cardTop">
                 <div>
-                    <span class="color: Moneygreen;">
-                        <i id="money" class="fa-solid fa-dollar-sign fa-lg">{{post.price}}</i>
-                    </span>
+                    <i id="money" class="fa-solid fa-dollar-sign fa-lg">{{post.price}}</i>
                 </div>
                 <div id="cardMenuButton">
                     <a href="{{url_for('dish_posts.dish_post', dish_post_id=post.id)}}">
-                        <span style="color: dodgerblue;"><i class="fa-solid fa-eye fa-1x"></i></span>
+                        <span style="color: tomato;"><i class="fa-solid fa-eye fa-1x"></i></span>
                     </a>
                 </div>
             </div>
@@ -23,11 +21,11 @@
                 {{post.title}}
             </h5>
             <div class="restaurant">
-                    Restaurant:
-                    <a href="{{url_for('users.user_posts', restaurantname=post.restaurant.restaurantname)}}">
-                        {{post.restaurant.restaurantname}}
-                    </a>
-                
+                Restaurant:
+                <a href="{{url_for('users.user_posts', restaurantname=post.restaurant.restaurantname)}}">
+                    {{post.restaurant.restaurantname}}
+                </a>
+
             </div>
         </div>
     </div>

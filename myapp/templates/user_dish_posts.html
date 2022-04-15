@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="menuOuter">
+    <div class="menuImg">
+        <img id="menupic" src="https://res.cloudinary.com/nell1818/image/upload/v1649986534/Untitled_design_14_qzhezp.png" 
+        alt="">
+        
     <h1>{{user.restaurantname}}'s Menu</h1>
+    </div>
     <div class="container">
         {% for post in dish_posts.items %}
         <div class="card">
@@ -9,7 +14,7 @@
                 <h2>
                     <a href="{{url_for('dish_posts.dish_post', dish_post_id=post.id)}}">{{post.title}}</a>
                 </h2>
-                <h4>${{post.price}}</h4>
+                <i id="money" class="fa-solid fa-dollar-sign fa-lg">{{post.price}}</i>
                 <p>{{post.description}}</p>
             </div>
         </div>
