@@ -23,12 +23,12 @@
                 <p style="font-size: 12px;">Home</p>
                 <a>
         </li>
+        {% if current_user.is_authenticated %}
         <li class="nav-link">
             <a href="{{url_for('core.info')}}"><i class="fa-solid fa-tags fa-xl"></i>
                 <p style="font-size: 12px;">Offers</p>
             </a>
         </li>
-        {% if current_user.is_authenticated %}
         <li class="nav-link">
             <a href="{{url_for('dish_posts.create_dish')}}"><i class="fa-solid fa-square-plus fa-3x"></i>
                 <!-- <p style="font-size: 12px;">Create</p> -->
