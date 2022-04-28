@@ -34,13 +34,16 @@ li p {
 .container {
   display: grid;
   justify-content: center;
-  align-items: center;
+  align-items: center;   
+  position: relative;
+  z-index: 100;
   /* height: 250px; */
   width: 100vw;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
-
+  margin-bottom: 200px;
+  overflow: hidden;
 }
 
 .containerPost {
@@ -218,6 +221,7 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0;
+  z-index: -1;
   width: 100%;
   box-shadow: 0px 0px 2px 2px rgba(.2, .2, .2, .2);
 }
